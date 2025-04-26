@@ -1,7 +1,9 @@
 const express = require('express')
 require('dotenv').config()
+const cookieParser = require('cookie-parser');
 
 const app = express()
+app.use(cookieParser());
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
@@ -14,4 +16,4 @@ const {logRequest} = require('./middlewares/log')
 
 app.use(logRequest)
 app.use(express.json())
-app.use('/users', UserRoute)
+app.use('/auth', UserRoute)

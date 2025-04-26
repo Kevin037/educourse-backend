@@ -13,8 +13,20 @@ const createUser = async (body) => {
     return rows;
 };
 
-const updateUser = (body,idUser) => {
-    const rows = dbPool.execute(`UPDATE users SET name = '${body.name}', email = '${body.email}', no_hp = '${body.no_hp}', password = '${body.password}' WHERE id = ${idUser}`);
+const getUser = async (email, sync=false) => {
+    const attr = (sync) ? '*' : 'id, name, email, no_hp, photo';
+    const [user] = await dbPool.execute(`SELECT ${attr} FROM users WHERE email = '${email}'`);
+    return (user.length > 0) ? user[0] : false;
+}
+
+const updateUser = async (body,email) => {
+    const keys = Object.keys(body);
+    if (keys.length === 0) {
+        return { error: true, message: 'Tidak ada data untuk diupdate'};
+    }
+    const setQuery = keys.map(key => `${key} = ?`).join(', ');
+    const values = keys.map(key => body[key]);
+    const rows = await dbPool.execute(`UPDATE users SET ${setQuery} WHERE email = '${email}'`,values);
     return rows;
 };
 
@@ -23,4 +35,4 @@ const deleteUser = (idUser) => {
     return rows;
 };
 
-module.exports = { getAllUsers, createUser, updateUser, deleteUser };
+module.exports = { getAllUsers, createUser, updateUser, deleteUser, getUser };
