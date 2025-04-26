@@ -1,24 +1,39 @@
-const {getAllUsers} = require('../models/users');
+const {getAllUsers, createUser, updateUser, deleteUser} = require('../models/users');
 
 const GetUser = async (req,res) => {
     try {
         const [data] = await getAllUsers();
-        res.json({error:0,data:data})
+        res.status(200).json({error:0,data:data})
     } catch (error) {
         res.status(500).json({error:1,data:"Server error",message:error});
     }
 }
 
 const StoreUser = async (req,res) => {
-    res.json({error:0,data:req.body})
+    try {
+        await createUser(req.body);
+        res.status(201).json({error:0,data:req.body})
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
 }
 
 const UpdateUser = async (req,res) => {
-    res.json({error:0,data:"update user ok"})
+    try {
+        await updateUser(req.body,req.params.id);
+        res.status(200).json({error:0,data:"Deleted"})
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
 }
 
 const DeleteUser = async (req,res) => {
-    res.json({error:0,data:"user deleted ok"})
+    try {
+        await deleteUser(req.params.id);
+        res.status(200).json({error:0,data:req.body})
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
 }
 
 module.exports = {StoreUser,UpdateUser,DeleteUser, GetUser}; 

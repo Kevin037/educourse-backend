@@ -7,4 +7,8 @@ router.get('/', GetUser)
 
 router.post('/', StoreUser)
 
+router.patch('/:id', UpdateUser)
+
+router.delete('/:id', DeleteUser)
+
 module.exports = router
