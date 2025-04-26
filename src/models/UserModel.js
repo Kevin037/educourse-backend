@@ -1,13 +1,15 @@
 const dbPool = require("../config/database");
+const bcrypt = require("bcrypt");
 
 const getAllUsers = () => {
     const rows = dbPool.execute("SELECT * FROM users");
     return rows;
 };
 
-const createUser = (body) => {
+const createUser = async (body) => {
+    const password = await bcrypt.hash(body.password, 10);
     const rows = dbPool.execute(`INSERT INTO users (name,email,	no_hp,password) 
-                                VALUES ('${body.name}', '${body.email}', '${body.no_hp}', '${body.password}')`);
+                                VALUES ('${body.name}', '${body.email}', '${body.no_hp}', '${password}')`);
     return rows;
 };
 

@@ -1,4 +1,4 @@
-const {getAllUsers, createUser, updateUser, deleteUser} = require('../models/users');
+const {getAllUsers, createUser, updateUser, deleteUser} = require('../models/UserModel');
 
 const GetUser = async (req,res) => {
     try {
@@ -11,8 +11,8 @@ const GetUser = async (req,res) => {
 
 const StoreUser = async (req,res) => {
     try {
-        await createUser(req.body);
-        res.status(201).json({error:0,data:req.body})
+        const user = await createUser(req.body);
+        res.status(201).json({error:0,message: "User successfully registered."})
     } catch (error) {
         res.status(500).json({error:1,data:"Server error",message:error});
     }

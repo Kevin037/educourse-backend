@@ -5,7 +5,7 @@ const {StoreUser,UpdateUser,DeleteUser, GetUser}  = require('../controllers/User
 
 router.get('/', GetUser)
 
-router.post('/', StoreUser)
+router.post('/register', StoreUser)
 
 router.patch('/:id', UpdateUser)
 

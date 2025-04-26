@@ -8,7 +8,7 @@ app.listen(port, () => {
   console.log(`TeamWork app listening on port ${port}`)
 })
 
-const UserRoute = require('./routes/user')
+const UserRoute = require('./routes/userRoute')
 const {logRequest} = require('./middlewares/log')
 
 
