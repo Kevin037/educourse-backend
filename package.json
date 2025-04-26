@@ -1,0 +1,16 @@
+{
+  "name": "edu",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "kevin",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
