@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const {GetClasses}  = require('../controllers/ClassController')
+const {GetClasses, GetClass}  = require('../controllers/ClassController')
+
+router.get('/:id', GetClass)
 
 router.get('/', GetClasses)
 

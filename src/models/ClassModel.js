@@ -1,5 +1,4 @@
 const dbPool = require("../config/database");
-const bcrypt = require("bcrypt");
 
 const getAllClasses = async (category_id="") => {
     console.log(category_id);
@@ -15,4 +14,14 @@ const getAllClasses = async (category_id="") => {
     return rows;
 };
 
-module.exports = { getAllClasses };
+const getClass = async (id) => {
+    console.log(id);
+    
+    const [rows] = await dbPool.execute(`SELECT classes.*, class_categories.name as category
+                        FROM classes
+                        JOIN class_categories ON classes.category_id = class_categories.id
+                        WHERE classes.id = ${id}`);
+    return (rows.length > 0) ? rows[0] : false;
+};
+
+module.exports = { getAllClasses, getClass };
