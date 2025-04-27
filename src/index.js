@@ -14,6 +14,7 @@ const UserRoute = require('./routes/userRoute')
 const ClassRoute = require('./routes/classRoute')
 const ClassCategoriesRoute = require('./routes/classCategoriesRoute')
 const OrderRoute = require('./routes/orderRoute')
+const MyClassRoute = require('./routes/MyClassRoute')
 const {logRequest} = require('./middlewares/log')
 
 
@@ -23,3 +24,4 @@ app.use('/auth', UserRoute)
 app.use('/classes/',ClassRoute)
 app.use('/class_categories/',ClassCategoriesRoute)
 app.use('/orders/',OrderRoute)
+app.use('/my_classes/',MyClassRoute)

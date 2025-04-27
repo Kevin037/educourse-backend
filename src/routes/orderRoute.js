@@ -7,9 +7,9 @@ router.post('/', StoreOrder)
 
 router.post('/review', StoreReview)
 
-router.patch('/change_payment/:id', ChangePayment)
+router.patch('/change_payment', ChangePayment)
 
-router.patch('/process_payment/:id', ProcessPayment)
+router.patch('/process_payment', ProcessPayment)
 
 router.get('/:id', GetOrder)
 

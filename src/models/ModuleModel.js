@@ -6,4 +6,9 @@ const getAllModules = async (class_id="") => {
     return rows;
 };
 
-module.exports = { getAllModules };
+const getModule = async (id) => {
+    const [rows] = await dbPool.execute(`SELECT * FROM modules WHERE modules.id = ${id}`);
+    return (rows.length > 0) ? rows[0] : false;
+};
+
+module.exports = { getAllModules, getModule };

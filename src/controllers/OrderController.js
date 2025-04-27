@@ -2,6 +2,10 @@ const {getOrders, createOrder, updateOrder, getOrder} = require('../models/Order
 const jwt = require("jsonwebtoken");
 const { createPayment, updatePayment } = require('../models/PaymentModel');
 const { createReview } = require('../models/ReviewModel');
+const { getAllModules } = require('../models/ModuleModel');
+const { getAllPretests } = require('../models/PretestModel');
+const { getAllMaterials } = require('../models/MaterialModel');
+const { createMyClass } = require('../models/MyClassModel');
 
 const GetOrder = async (req,res) => {
    try {
@@ -55,7 +59,7 @@ const ChangePayment = async (req,res) => {
         const Order = await updatePayment({
             payment_method: req.body.payment_method,
             updated_at: updatedAt
-        },req.params.id);
+        },req.body.order_id);
         res.status(200).json({error:0,data:"Order successfully updated."});
     } catch (error) {
         res.status(500).json({error:1,data:"Server error",message:error});
@@ -66,15 +70,28 @@ const ProcessPayment = async (req,res) => {
     try {
         const now = new Date();
         const updatedAt = now.toISOString().slice(0, 19).replace('T', ' ');
-        const order = await updateOrder({
+        await updateOrder({
             status: "success",
-        },req.params.id);
+        },req.body.order_id);
         const payment = await updatePayment({
             paid_at: updatedAt,
             status: "paid",
             updated_at: updatedAt
-        },req.params.id);
-        res.status(200).json({error:0,data:"Order successfully updated."});
+        },req.body.order_id);
+        const order = await getOrder(req.body.order_id);
+        const modules = await getAllModules(order.class_id);
+        const pretests = await getAllPretests(order.class_id);
+        const materials = await getAllMaterials(order.class_id);
+        for (const e of modules) {
+            await createMyClass({order_id:req.body.order_id,modul_id:e.id,pretest_id:null,material_id:null});   
+        }
+        for (const e of pretests) {
+            await createMyClass({order_id:req.body.order_id,modul_id:null,pretest_id:e.id,material_id:null});   
+        }
+        for (const e of materials) {
+            await createMyClass({order_id:req.body.order_id,modul_id:null,pretest_id:null,material_id:e.id});   
+        }
+        res.status(200).json({error:0,data:order});
     } catch (error) {
         res.status(500).json({error:1,data:"Server error",message:error});
     }
