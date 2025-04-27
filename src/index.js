@@ -13,6 +13,7 @@ app.listen(port, () => {
 const UserRoute = require('./routes/userRoute')
 const ClassRoute = require('./routes/classRoute')
 const ClassCategoriesRoute = require('./routes/classCategoriesRoute')
+const OrderRoute = require('./routes/orderRoute')
 const {logRequest} = require('./middlewares/log')
 
 
@@ -21,3 +22,4 @@ app.use(express.json())
 app.use('/auth', UserRoute)
 app.use('/classes/',ClassRoute)
 app.use('/class_categories/',ClassCategoriesRoute)
+app.use('/orders/',OrderRoute)
