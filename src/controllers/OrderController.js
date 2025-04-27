@@ -1,6 +1,7 @@
 const {getOrders, createOrder, updateOrder, getOrder} = require('../models/OrderModel');
 const jwt = require("jsonwebtoken");
 const { createPayment, updatePayment } = require('../models/PaymentModel');
+const { createReview } = require('../models/ReviewModel');
 
 const GetOrder = async (req,res) => {
    try {
@@ -79,4 +80,15 @@ const ProcessPayment = async (req,res) => {
     }
 }
 
-module.exports = {StoreOrder,ChangePayment,GetOrder,GetMyOrders,ProcessPayment}; 
+const StoreReview = async (req,res) => {
+    try {
+        const token = req.cookies.token;
+        const data = jwt.decode(token);
+        const review = await createReview(req.body);
+        res.status(201).json({error:0,message: "Review successfully created."})
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
+}
+
+module.exports = {StoreOrder,ChangePayment,GetOrder,GetMyOrders,ProcessPayment,StoreReview}; 

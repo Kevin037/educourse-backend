@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { StoreOrder, GetMyOrders, GetOrder, ChangePayment, ProcessPayment } = require('../controllers/OrderController')
+const { StoreOrder, GetMyOrders, GetOrder, ChangePayment, ProcessPayment, StoreReview } = require('../controllers/OrderController')
 
 router.post('/', StoreOrder)
+
+router.post('/review', StoreReview)
 
 router.patch('/change_payment/:id', ChangePayment)
 

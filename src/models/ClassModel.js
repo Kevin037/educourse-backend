@@ -1,8 +1,6 @@
 const dbPool = require("../config/database");
 
 const getAllClasses = async (category_id="") => {
-    console.log(category_id);
-    
     const where = (category_id !== "") ? `WHERE classes.category_id = ${category_id}` : "";
     const [rows] = await dbPool.execute(`SELECT classes.*, class_categories.name as category
                         , tutors.name as tutor, tutors.company as tutor_company,
@@ -15,8 +13,6 @@ const getAllClasses = async (category_id="") => {
 };
 
 const getClass = async (id) => {
-    console.log(id);
-    
     const [rows] = await dbPool.execute(`SELECT classes.*, class_categories.name as category
                         FROM classes
                         JOIN class_categories ON classes.category_id = class_categories.id
