@@ -1,6 +1,7 @@
 const {getAllUsers, createUser, updateUser, deleteUser, getUser} = require('../models/UserModel');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { getOrders } = require('../models/OrderModel');
 
 const GetProfile = async (req,res) => {
    try {
@@ -12,6 +13,17 @@ const GetProfile = async (req,res) => {
       res.status(400).json({ error });
    }
 }
+
+const GetMyClasses = async (req,res) => {
+    try {
+        const token = req.cookies.token;
+        const data = jwt.decode(token);
+        const Orders = await getOrders(data.user.id,"success",req.query.status);
+        res.status(200).json({error:0,data:Orders});
+    } catch (error) {
+       res.status(400).json({ error });
+    }
+ }
 
 const StoreUser = async (req,res) => {
     try {
@@ -93,4 +105,4 @@ const SignOut = async (req, res) => {
     res.status(200).json({ message: "Logged out" });
   }
 
-module.exports = {StoreUser,UpdateUser,DeleteUser, GetProfile, SignIn, SignOut}; 
+module.exports = {StoreUser,UpdateUser,DeleteUser, GetProfile, SignIn, SignOut, GetMyClasses}; 

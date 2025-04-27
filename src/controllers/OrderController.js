@@ -15,7 +15,7 @@ const GetMyOrders = async (req,res) => {
     try {
         const token = req.cookies.token;
         const data = jwt.decode(token);
-        const Orders = await getOrders(data.user.id);
+        const Orders = await getOrders(data.user.id,req.query.status);
         res.status(200).json({error:0,data:Orders});
     } catch (error) {
        res.status(400).json({ error });

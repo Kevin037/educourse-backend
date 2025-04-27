@@ -1,9 +1,26 @@
 const dbPool = require("../config/database");
 
-const getOrders = async (user_id="") => {
-    const where = (user_id !== "") ? `WHERE orders.user_id = ${user_id}` : "";
-    const [rows] = await dbPool.execute(`SELECT orders.*,payments.* FROM orders 
+const getOrders = async (user_id="",status="",class_status="") => {
+    let where = (user_id !== "") ? `WHERE orders.user_id = ${user_id}` : "";
+    if (status !== "") {
+        where += (where !== "") ? " AND " : "WHERE ";
+        where += `orders.status = '${status}'`;
+    }
+    if (class_status !== "") {
+        where += (where !== "") ? " AND " : "WHERE ";
+        where += `orders.class_completed = '${class_status}'`;
+    }
+    
+    const [rows] = await dbPool.execute(`SELECT payments.*, payments.status as payment_status,orders.*, 
+                                classes.name, classes.description, class_categories.name as class_category, 
+                                classes.photo, classes.page_title,
+                                tutors.name as tutor, tutors.company as tutor_company,
+                                tutors.description as tutor_description, tutors.photo as tutor_photo, tutors.position as tutor_position
+                                FROM orders
                                 JOIN payments ON orders.id = payments.order_id
+                                JOIN classes ON classes.id = orders.class_id
+                                JOIN class_categories ON class_categories.id = classes.category_id
+                                LEFT JOIN tutors ON tutors.id = (SELECT MIN(t.id) FROM tutors t WHERE t.class_id = classes.id)
                                 ${where}`);
     return rows;
 };
@@ -15,8 +32,17 @@ const createOrder = async (body) => {
 };
 
 const getOrder = async (id) => {
-    const [order] = await dbPool.execute(`SELECT payments.*, payments.status as payment_status,orders.*
-                                        FROM orders INNER JOIN payments ON orders.id = payments.order_id WHERE orders.id = ${id}`);
+    const [order] = await dbPool.execute(`SELECT payments.*, payments.status as payment_status,orders.*,
+                                        classes.name, classes.description, class_categories.name as class_category, 
+                                        classes.photo, classes.page_title,
+                                        tutors.name as tutor, tutors.company as tutor_company,
+                                        tutors.description as tutor_description, tutors.photo as tutor_photo, tutors.position as tutor_position
+                                        FROM orders 
+                                        INNER JOIN payments ON orders.id = payments.order_id
+                                        JOIN classes ON classes.id = orders.class_id
+                                        JOIN class_categories ON class_categories.id = classes.category_id
+                                        LEFT JOIN tutors ON tutors.id = (SELECT MIN(t.id) FROM tutors t WHERE t.class_id = classes.id)
+                                        WHERE orders.id = ${id}`);
     return (order.length > 0) ? order[0] : false;
 }
 

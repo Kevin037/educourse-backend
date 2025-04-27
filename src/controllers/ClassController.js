@@ -14,20 +14,6 @@ const GetClasses = async (req,res) => {
 
 const GetClass = async (req,res) => {
    try {
-      const arr = [
-         {
-            id: 1,
-            name: "English"
-         },
-         {
-            id: 2,
-            name: "Math"
-         },
-         {
-            id: 3,
-            name: "Science"
-         }
-      ]
       const classData = await getClass(req.params.id);
       const tutors = await getAllTutors(req.params.id);
       const mudules = await getAllModules(req.params.id);
