@@ -9,7 +9,7 @@ const getAllMyModules = async (orderId) => {
 };
 
 const getAllMyPretests = async (orderId) => {
-    const [rows] = await dbPool.execute(`SELECT my_classes.*, pretests.*
+    const [rows] = await dbPool.execute(`SELECT my_classes.*, pretests.*, my_classes.answer as user_answer
                         FROM my_classes
                         JOIN pretests ON my_classes.pretest_id = pretests.id
                         WHERE my_classes.order_id = ${orderId} AND my_classes.pretest_id IS NOT NULL`);
@@ -17,7 +17,7 @@ const getAllMyPretests = async (orderId) => {
 };
 
 const getAllMyMaterials = async (orderId) => {
-    const [rows] = await dbPool.execute(`SELECT my_classes.*, materials.*
+    const [rows] = await dbPool.execute(`SELECT my_classes.*, materials.*, my_classes.answer as user_answer
                         FROM my_classes
                         JOIN materials ON my_classes.material_id = materials.id
                         WHERE my_classes.order_id = ${orderId} AND my_classes.material_id IS NOT NULL`);

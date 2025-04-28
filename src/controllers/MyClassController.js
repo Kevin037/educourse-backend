@@ -33,8 +33,6 @@ const GetMyClass = async (req,res) => {
 }
 
 const ProcessMyClass = async (req,res) => {
-   console.log(req.body.answer);
-   
    try {
       await updateMyClass({
            status: "completed",
@@ -56,5 +54,41 @@ const SendAnswer = async (req,res) => {
        res.status(500).json({error:1,data:"Server error",message:error});
    }
 }
+const CalculateScore = (values) => {
+   let score = 0;
+   values.forEach(e => {
+       if (e.user_answer == e.answer) {
+           score += 1;
+       }
+   });
+   score = (score / values.length) * 100;
+   return score;
+}
 
-module.exports = {GetMyClass,ProcessMyClass,SendAnswer};
+const SubmitPretest = async (req,res) => {
+   try {
+      const pretests = await getAllMyPretests(req.body.id);
+      const score  = CalculateScore(pretests);
+      await updateOrder({
+         pretest_score: score,
+       },req.body.id);
+       res.status(200).json({error:0,data:"MyClass successfully updated."});
+   } catch (error) {
+       res.status(500).json({error:1,data:"Server error",message:error});
+   }
+}
+
+const SubmitQuiz = async (req,res) => {
+   try {
+      const quizes = await getAllMyMaterials(req.body.id);
+      const score  = CalculateScore(quizes);
+      await updateOrder({
+         quiz_score: score,
+       },req.body.id);
+       res.status(200).json({error:0,data:"MyClass successfully updated."});
+   } catch (error) {
+       res.status(500).json({error:1,data:"Server error",message:error});
+   }
+}
+
+module.exports = {GetMyClass,ProcessMyClass,SendAnswer, SubmitPretest, SubmitQuiz};
