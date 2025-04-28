@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const { getMyClass } = require('../models/MyClassModel')
+const { GetMyClass } = require('../controllers/MyClassController')
 
-router.get('/:id', getMyClass)
+router.get('/:id', GetMyClass)
 
 module.exports = router

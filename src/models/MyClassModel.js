@@ -1,23 +1,34 @@
 const dbPool = require("../config/database");
 
-// const getAllClasses = async (category_id="") => {
-//     const where = (category_id !== "") ? `WHERE classes.category_id = ${category_id}` : "";
-//     const [rows] = await dbPool.execute(`SELECT classes.*, class_categories.name as category
-//                         , tutors.name as tutor, tutors.company as tutor_company,
-//                         tutors.description as tutor_description, tutors.photo as tutor_photo, tutors.position as tutor_position,
-//                         COALESCE(AVG(reviews.rating), 0) AS rating_average
-//                         FROM classes
-//                         JOIN class_categories ON classes.category_id = class_categories.id
-//                         LEFT JOIN tutors ON tutors.id = (SELECT MIN(t.id) FROM tutors t WHERE t.class_id = classes.id)
-//                         LEFT JOIN orders ON orders.class_id = classes.id
-//                         LEFT JOIN reviews ON reviews.order_id = orders.id
-//                         ${where} GROUP BY classes.id`);
-//     return rows;
-// };
+const getAllMyModules = async (orderId) => {
+    const [rows] = await dbPool.execute(`SELECT my_classes.*, modules.*
+                        FROM my_classes
+                        JOIN modules ON my_classes.module_id = modules.id
+                        WHERE my_classes.order_id = ${orderId} AND my_classes.module_id IS NOT NULL`);
+    return rows;
+};
+
+const getAllMyPretests = async (orderId) => {
+    const [rows] = await dbPool.execute(`SELECT my_classes.*, pretests.*
+                        FROM my_classes
+                        JOIN pretests ON my_classes.pretest_id = pretests.id
+                        WHERE my_classes.order_id = ${orderId} AND my_classes.pretest_id IS NOT NULL`);
+    return rows;
+};
+
+const getAllMyMaterials = async (orderId) => {
+    const [rows] = await dbPool.execute(`SELECT my_classes.*, materials.*
+                        FROM my_classes
+                        JOIN materials ON my_classes.material_id = materials.id
+                        WHERE my_classes.order_id = ${orderId} AND my_classes.material_id IS NOT NULL`);
+    return rows;
+};
 
 const createMyClass = async (body) => {
-    const [result] = await dbPool.execute(`INSERT INTO my_classes (status,order_id,modul_id,pretest_id,material_id) 
-        VALUES ('pending', '${body.order_id}', '${body.modul_id}', '${body.pretest_id}', '${body.material_id}')`);
+    const [result] = await dbPool.execute(`INSERT INTO my_classes (status,order_id,module_id,pretest_id,material_id) 
+        VALUES (?, ?, ?, ?, ?)`,
+        ['pending', body.order_id, body.module_id, body.pretest_id, body.material_id]
+    );
     return result;
 };
 
@@ -27,4 +38,4 @@ const getMyClass = async (id) => {
     return (rows.length > 0) ? rows[0] : false;
 };
 
-module.exports = { getMyClass, createMyClass };
+module.exports = { getMyClass, createMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials };

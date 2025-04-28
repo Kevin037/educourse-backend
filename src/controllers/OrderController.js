@@ -83,13 +83,13 @@ const ProcessPayment = async (req,res) => {
         const pretests = await getAllPretests(order.class_id);
         const materials = await getAllMaterials(order.class_id);
         for (const e of modules) {
-            await createMyClass({order_id:req.body.order_id,modul_id:e.id,pretest_id:null,material_id:null});   
+            await createMyClass({order_id:req.body.order_id,module_id:e.id,pretest_id:null,material_id:null});   
         }
         for (const e of pretests) {
-            await createMyClass({order_id:req.body.order_id,modul_id:null,pretest_id:e.id,material_id:null});   
+            await createMyClass({order_id:req.body.order_id,module_id:null,pretest_id:e.id,material_id:null});   
         }
         for (const e of materials) {
-            await createMyClass({order_id:req.body.order_id,modul_id:null,pretest_id:null,material_id:e.id});   
+            await createMyClass({order_id:req.body.order_id,module_id:null,pretest_id:null,material_id:e.id});   
         }
         res.status(200).json({error:0,data:order});
     } catch (error) {
