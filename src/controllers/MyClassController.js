@@ -1,7 +1,5 @@
-const {getOrders, createOrder, updateOrder, getOrder} = require('../models/OrderModel');
+const {updateOrder, CheckProgress, GetProgress} = require('../models/OrderModel');
 const jwt = require("jsonwebtoken");
-const { createPayment, updatePayment } = require('../models/PaymentModel');
-const { createReview } = require('../models/ReviewModel');
 const { getMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials, updateMyClass } = require('../models/MyClassModel');
 const { getModule } = require('../models/ModuleModel');
 const { getPretest } = require('../models/PretestModel');
@@ -14,6 +12,7 @@ const GetMyClass = async (req,res) => {
       const pretest = await getPretest(myClass.pretest_id);
       const quiz = await getMaterial(myClass.material_id);
       const myModules = await getAllMyModules(myClass.order_id);
+      const progress = await GetProgress(myClass.order_id);
       myClass.modules = myModules;
       myClass.module = module;
       myClass.pretest = pretest;
@@ -26,6 +25,7 @@ const GetMyClass = async (req,res) => {
          const materials = await getAllMyMaterials(myClass.order_id);
          myClass.quizes = materials;
       }
+      myClass.progress = progress;
       res.status(200).json({error:0,data:myClass});
    } catch (error) {
       res.status(400).json({ error });
@@ -33,10 +33,12 @@ const GetMyClass = async (req,res) => {
 }
 
 const ProcessMyClass = async (req,res) => {
+   const myClass = await getMyClass(req.body.id)
    try {
       await updateMyClass({
            status: "completed",
        },req.body.id);
+       await CheckProgress(myClass.order_id);
        res.status(200).json({error:0,data:"MyClass successfully updated."});
    } catch (error) {
        res.status(500).json({error:1,data:"Server error",message:error});
@@ -72,6 +74,7 @@ const SubmitPretest = async (req,res) => {
       await updateOrder({
          pretest_score: score,
        },req.body.id);
+       await CheckProgress(req.body.id);
        res.status(200).json({error:0,data:"MyClass successfully updated."});
    } catch (error) {
        res.status(500).json({error:1,data:"Server error",message:error});
@@ -85,6 +88,7 @@ const SubmitQuiz = async (req,res) => {
       await updateOrder({
          quiz_score: score,
        },req.body.id);
+       await CheckProgress(req.body.id);
        res.status(200).json({error:0,data:"MyClass successfully updated."});
    } catch (error) {
        res.status(500).json({error:1,data:"Server error",message:error});

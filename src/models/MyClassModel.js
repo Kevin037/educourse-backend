@@ -1,5 +1,11 @@
 const dbPool = require("../config/database");
 
+const getAllMyClasses = async (orderId,status="") => {
+    const where = (status !== "") ? ` AND my_classes.status = '${status}'` : "";
+    const [rows] = await dbPool.execute(`SELECT * FROM my_classes WHERE my_classes.order_id = ${orderId} ${where}`);
+    return rows;
+};
+
 const getAllMyModules = async (orderId) => {
     const [rows] = await dbPool.execute(`SELECT my_classes.*, modules.*
                         FROM my_classes
@@ -49,4 +55,4 @@ const updateMyClass = async (body,id) => {
     return rows;
 };
 
-module.exports = { getMyClass, createMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials, updateMyClass };
+module.exports = { getMyClass, createMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials, updateMyClass, getAllMyClasses };
