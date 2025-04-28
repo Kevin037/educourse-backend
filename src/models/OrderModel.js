@@ -90,4 +90,9 @@ const updateOrder = async (body,id) => {
     return rows;
 };
 
-module.exports = { getOrders, createOrder, updateOrder, getOrder,CheckProgress, GetProgress };
+const deleteReview = (orderId) => {
+    const rows = dbPool.execute(`DELETE FROM reviews WHERE order_id = ${orderId}`);
+    return rows;
+};
+
+module.exports = { getOrders, createOrder, updateOrder, getOrder,CheckProgress, GetProgress, deleteReview };

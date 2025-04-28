@@ -1,4 +1,4 @@
-const {getAllUsers, createUser, updateUser, deleteUser, getUser} = require('../models/UserModel');
+const {createUser, updateUser, getUser} = require('../models/UserModel');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { getOrders } = require('../models/OrderModel');
@@ -95,18 +95,9 @@ const UpdateUser = async (req,res) => {
     }
 }
 
-const DeleteUser = async (req,res) => {
-    try {
-        await deleteUser(req.params.id);
-        res.status(200).json({error:0,data:req.body})
-    } catch (error) {
-        res.status(500).json({error:1,data:"Server error",message:error});
-    }
-}
-
 const SignOut = async (req, res) => {
     res.clearCookie("token");
     res.status(200).json({ message: "Logged out" });
   }
 
-module.exports = {StoreUser,UpdateUser,DeleteUser, GetProfile, SignIn, SignOut, GetMyClasses}; 
+module.exports = {StoreUser,UpdateUser, GetProfile, SignIn, SignOut, GetMyClasses}; 

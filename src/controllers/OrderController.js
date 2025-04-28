@@ -1,4 +1,4 @@
-const {getOrders, createOrder, updateOrder, getOrder} = require('../models/OrderModel');
+const {getOrders, createOrder, updateOrder, getOrder, deleteReview} = require('../models/OrderModel');
 const jwt = require("jsonwebtoken");
 const { createPayment, updatePayment } = require('../models/PaymentModel');
 const { createReview } = require('../models/ReviewModel');
@@ -108,4 +108,13 @@ const StoreReview = async (req,res) => {
     }
 }
 
-module.exports = {StoreOrder,ChangePayment,GetOrder,GetMyOrders,ProcessPayment,StoreReview}; 
+const DeleteReview = async (req,res) => {
+    try {
+        await deleteReview(req.body.id);
+        res.status(200).json({error:0,data:"Review Deleted"})
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
+}
+
+module.exports = {StoreOrder,ChangePayment,GetOrder,GetMyOrders,ProcessPayment,StoreReview,DeleteReview}; 

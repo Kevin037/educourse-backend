@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { StoreOrder, GetMyOrders, GetOrder, ChangePayment, ProcessPayment, StoreReview } = require('../controllers/OrderController')
+const { StoreOrder, GetMyOrders, GetOrder, ChangePayment, ProcessPayment, StoreReview, DeleteReview } = require('../controllers/OrderController')
 const { verifyToken } = require('../middlewares/authmiddleware')
 
 router.post('/',verifyToken, StoreOrder)
@@ -15,5 +15,7 @@ router.patch('/process_payment',verifyToken, ProcessPayment)
 router.get('/:id',verifyToken, GetOrder)
 
 router.get('/',verifyToken, GetMyOrders)
+
+router.delete('/review/delete',verifyToken, DeleteReview)
 
 module.exports = router
