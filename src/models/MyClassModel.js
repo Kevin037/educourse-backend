@@ -38,4 +38,15 @@ const getMyClass = async (id) => {
     return (rows.length > 0) ? rows[0] : false;
 };
 
-module.exports = { getMyClass, createMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials };
+const updateMyClass = async (body,id) => {
+    const keys = Object.keys(body);
+    if (keys.length === 0) {
+        return { error: true, message: 'Tidak ada data untuk diupdate'};
+    }
+    const setQuery = keys.map(key => `${key} = ?`).join(', ');
+    const values = keys.map(key => body[key]);
+    const rows = await dbPool.execute(`UPDATE my_classes SET ${setQuery} WHERE id = ${id}`,values);
+    return rows;
+};
+
+module.exports = { getMyClass, createMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials, updateMyClass };

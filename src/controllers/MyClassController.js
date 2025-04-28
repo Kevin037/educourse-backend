@@ -2,7 +2,7 @@ const {getOrders, createOrder, updateOrder, getOrder} = require('../models/Order
 const jwt = require("jsonwebtoken");
 const { createPayment, updatePayment } = require('../models/PaymentModel');
 const { createReview } = require('../models/ReviewModel');
-const { getMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials } = require('../models/MyClassModel');
+const { getMyClass, getAllMyModules, getAllMyPretests, getAllMyMaterials, updateMyClass } = require('../models/MyClassModel');
 const { getModule } = require('../models/ModuleModel');
 const { getPretest } = require('../models/PretestModel');
 const { getMaterial } = require('../models/MaterialModel');
@@ -32,4 +32,29 @@ const GetMyClass = async (req,res) => {
    }
 }
 
-module.exports = {GetMyClass};
+const ProcessMyClass = async (req,res) => {
+   console.log(req.body.answer);
+   
+   try {
+      await updateMyClass({
+           status: "completed",
+       },req.body.id);
+       res.status(200).json({error:0,data:"MyClass successfully updated."});
+   } catch (error) {
+       res.status(500).json({error:1,data:"Server error",message:error});
+   }
+}
+
+const SendAnswer = async (req,res) => {
+   try {
+      await updateMyClass({
+           status: "completed",
+           answer: req.body.answer
+       },req.body.id);
+       res.status(200).json({error:0,data:"MyClass successfully updated."});
+   } catch (error) {
+       res.status(500).json({error:1,data:"Server error",message:error});
+   }
+}
+
+module.exports = {GetMyClass,ProcessMyClass,SendAnswer};
