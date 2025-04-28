@@ -27,6 +27,10 @@ const GetMyClasses = async (req,res) => {
 
 const StoreUser = async (req,res) => {
     try {
+        const existingUser = await getUser(req.body.email);
+        if (existingUser) {
+            return res.status(400).json({ error: 1, message: "Email sudah terdaftar." });
+        }
         const user = await createUser(req.body);
         res.status(201).json({error:0,message: "User successfully registered."})
     } catch (error) {
