@@ -1,0 +1,1178 @@
+{
+	"info": {
+		"_postman_id": "3db133b1-0e5c-4641-a586-632d7c8da5de",
+		"name": "Educourse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19079393"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/auth/profile"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"66-PkEvo0HGKAoxbggcTLgmvYi66Iw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:48:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": {\n        \"id\": 7,\n        \"name\": \"nivek\",\n        \"email\": \"ksatria888@gmail.com\",\n        \"no_hp\": 3333333,\n        \"photo\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "profile Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "http://localhost:4200/auth/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18-ez3HU6ztP+x97ArcQd0fxpuaOt0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:45:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logged out\"\n}"
+						}
+					]
+				},
+				{
+					"name": "classes",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "profile Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4200/auth/classes?status=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4200",
+									"path": [
+										"auth",
+										"classes"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2092"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"82c-hQ7dJi7oMNbCvgyMB3O8e98AMSY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:47:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"id\": 5,\n            \"payment_method\": \"ovo\",\n            \"order_id\": 5,\n            \"paid_at\": \"2025-04-27T00:14:54.000Z\",\n            \"expired_at\": \"2025-04-27T00:37:26.000Z\",\n            \"status\": \"success\",\n            \"updated_at\": \"2025-04-27T00:14:54.000Z\",\n            \"payment_status\": \"paid\",\n            \"no\": null,\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:38:58.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 11,\n            \"payment_method\": \"bca\",\n            \"order_id\": 11,\n            \"paid_at\": \"2025-04-27T16:21:30.000Z\",\n            \"expired_at\": \"2025-04-27T00:46:33.000Z\",\n            \"status\": \"success\",\n            \"updated_at\": \"2025-04-27T16:21:30.000Z\",\n            \"payment_status\": \"paid\",\n            \"no\": \"HEL/VI/174573639337011\",\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:46:33.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Satria2\",\r\n    \"email\":\"777@gmail.com\",\r\n    \"no_hp\":\"0895421111\",\r\n    \"password\":\"00000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/users/2"
+					},
+					"response": [
+						{
+							"name": "update Copy",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"nivek\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/auth/update"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae-bY8nqCziyjBMFn1okDoRVTdTMwo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:48:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 4,\n            \"insertId\": 0,\n            \"info\": \"Rows matched: 4  Changed: 4  Warnings: 0\",\n            \"serverStatus\": 34,\n            \"warningStatus\": 0,\n            \"changedRows\": 4\n        },\n        null\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Kevin Satria2\",\r\n    \"email\":\"ksatria888@gmail.com\",\r\n    \"no_hp\":\"0895421111\",\r\n    \"password\":\"00000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/auth/register"
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Kevin Satria2\",\r\n    \"email\":\"ksatria889@gmail.com\",\r\n    \"no_hp\":\"0895421111\",\r\n    \"password\":\"00000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/auth/register"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-u2yhRLBdV00PD25njLJ3E7AzZ3A\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:46:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"message\": \"User successfully registered.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Kevin Satria2\",\r\n    \"email\":\"ksatria777@gmail.com\",\r\n    \"no_hp\":\"0895421111\",\r\n    \"password\":\"00000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/users"
+					},
+					"response": [
+						{
+							"name": "login Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ksatria888@gmail.com\",\r\n    \"password\":\"00000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJlbWFpbCI6ImtzYXRyaWE4ODhAZ21haWwuY29tIn0sImlhdCI6MTc0NTg1MTU0NiwiZXhwIjoxNzQ4NDQzNTQ2fQ.c8CHHNWm8aPK2WqoPZTn-g-_vO2d3LvvZW2r-Jkofz4; Max-Age=1745937946; Path=/; Expires=Sun, 25 Aug 2080 05:31:33 GMT; HttpOnly; Secure"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "280"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"118-rf/JG0WoGhj+JWAwzFc+ZO+4+Mo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:45:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJlbWFpbCI6ImtzYXRyaWE4ODhAZ21haWwuY29tIn0sImlhdCI6MTc0NTg1MTU0NiwiZXhwIjoxNzQ4NDQzNTQ2fQ.c8CHHNWm8aPK2WqoPZTn-g-_vO2d3LvvZW2r-Jkofz4\",\n    \"user\": {\n        \"id\": 7,\n        \"name\": \"Satria2\",\n        \"email\": \"ksatria888@gmail.com\",\n        \"photo\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "class_categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/class_categories"
+					},
+					"response": [
+						{
+							"name": "class_categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/class_categories"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "134"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"86-ppTRxszxn7S1ebZ4E5POaqUmAi8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:48:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Pemasaran\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Desain\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Pengembangan Diri\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Bisnis\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/class_categories"
+					},
+					"response": [
+						{
+							"name": "class_categories Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/classes"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2579"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a13-AHC+J4EVGzKhBHxnGk5IOj6gUnU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:48:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"category_id\": 1,\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"price\": 500000,\n            \"new_price\": 250000,\n            \"photo\": \"item9.svg\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"long_description\": \"Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.\",\n            \"category\": \"Pemasaran\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"rating_average\": \"0.0000\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Big 4 Auditor Financial Analyst2\",\n            \"category_id\": 2,\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2\",\n            \"price\": 400000,\n            \"new_price\": 200000,\n            \"photo\": \"item8.svg\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2\",\n            \"long_description\": \"Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.2\",\n            \"category\": \"Desain\",\n            \"tutor\": null,\n            \"tutor_company\": null,\n            \"tutor_description\": null,\n            \"tutor_photo\": null,\n            \"tutor_position\": null,\n            \"rating_average\": \"0.0000\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/classes/2"
+					},
+					"response": [
+						{
+							"name": "class",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/classes/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3046"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"be6-cMDAmXN+X24TvHQ0wYZBKGUb4UQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:52:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Big 4 Auditor Financial Analyst9\",\n        \"category_id\": 1,\n        \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n        \"price\": 500000,\n        \"new_price\": 250000,\n        \"photo\": \"item9.svg\",\n        \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n        \"long_description\": \"Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.\",\n        \"category\": \"Pemasaran\",\n        \"rating_average\": \"0.0000\",\n        \"tutors\": [\n            {\n                \"id\": 1,\n                \"name\": \"Bosque\",\n                \"company\": \"Shopee\",\n                \"position\": \"Manager\",\n                \"description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n                \"photo\": \"avatar1.svg\",\n                \"class_id\": 1\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Mbappe\",\n                \"company\": \"Shopee\",\n                \"position\": \"Staff\",\n                \"description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n                \"photo\": \"avatar2.svg\",\n                \"class_id\": 1\n            }\n        ],\n        \"modules\": [\n            {\n                \"id\": 1,\n                \"name\": \"Jobs in the field of user experience\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 20,\n                \"group_name\": \"Introduction to Course 1: Foundations of User Experience Design\",\n                \"class_id\": 1,\n                \"ordering\": 1\n            },\n            {\n                \"id\": 2,\n                \"name\": \"The product development life cycle\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 10,\n                \"group_name\": \"Introduction to Course 1: Foundations of User Experience Design\",\n                \"class_id\": 1,\n                \"ordering\": 2\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Jobs in the field of user experience\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 5,\n                \"group_name\": \"Introduction to Course 1: Foundations of User Experience Design\",\n                \"class_id\": 1,\n                \"ordering\": 3\n            },\n            {\n                \"id\": 4,\n                \"name\": \"The basics of user experience design\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 20,\n                \"group_name\": \"Introduction to Course 1: Foundations of User Experience Design\",\n                \"class_id\": 1,\n                \"ordering\": 4\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Ngoding\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 12,\n                \"group_name\": \"Introduction to design sprints\",\n                \"class_id\": 1,\n                \"ordering\": 5\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Universal design, inclusive design, and equity-focused design2\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 15,\n                \"group_name\": \"Universal design, inclusive design, and equity-focused design\",\n                \"class_id\": 1,\n                \"ordering\": 6\n            },\n            {\n                \"id\": 7,\n                \"name\": \"The product development life cycle UX\",\n                \"type\": \"video\",\n                \"content\": \"\",\n                \"duration\": 23,\n                \"group_name\": \"Introduction to UX research\",\n                \"class_id\": 1,\n                \"ordering\": 7\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "My Classes",
+			"item": [
+				{
+					"name": "class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/classes/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Process",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/my_classes/process"
+					},
+					"response": [
+						{
+							"name": "Process",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":8\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/my_classes/process"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-srr+cRYiXxwmDUyQCJtBezobE84\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:53:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": \"MyClass successfully updated.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Send Answer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/my_classes/process"
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Pretest",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/my_classes/process"
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Pretest Quiz",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/my_classes/process"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/class_categories"
+					},
+					"response": [
+						{
+							"name": "classes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/orders"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "7967"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f1f-4aJxsgHc6XxBPuOL198MrbpMMHQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:52:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"id\": 5,\n            \"payment_method\": \"ovo\",\n            \"order_id\": 5,\n            \"paid_at\": \"2025-04-27T00:14:54.000Z\",\n            \"expired_at\": \"2025-04-27T00:37:26.000Z\",\n            \"status\": \"success\",\n            \"updated_at\": \"2025-04-27T00:14:54.000Z\",\n            \"payment_status\": \"paid\",\n            \"no\": null,\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:38:58.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 6,\n            \"payment_method\": \"bca\",\n            \"order_id\": 6,\n            \"paid_at\": null,\n            \"expired_at\": \"2025-04-27T00:38:50.000Z\",\n            \"status\": \"pending\",\n            \"updated_at\": null,\n            \"payment_status\": \"pending\",\n            \"no\": null,\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:42:18.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 7,\n            \"payment_method\": \"bca\",\n            \"order_id\": 7,\n            \"paid_at\": null,\n            \"expired_at\": \"2025-04-27T00:38:58.000Z\",\n            \"status\": \"pending\",\n            \"updated_at\": null,\n            \"payment_status\": \"pending\",\n            \"no\": null,\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:42:40.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 8,\n            \"payment_method\": \"bca\",\n            \"order_id\": 8,\n            \"paid_at\": null,\n            \"expired_at\": \"2025-04-27T00:44:10.000Z\",\n            \"status\": \"pending\",\n            \"updated_at\": null,\n            \"payment_status\": \"pending\",\n            \"no\": \"HEL/VI/17457362506738\",\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:44:10.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 9,\n            \"payment_method\": \"ivi\",\n            \"order_id\": 9,\n            \"paid_at\": null,\n            \"expired_at\": \"2025-04-27T00:45:31.000Z\",\n            \"status\": \"pending\",\n            \"updated_at\": \"2025-04-27T16:28:35.000Z\",\n            \"payment_status\": \"pending\",\n            \"no\": \"HEL/VI/17457363314989\",\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:45:31.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 10,\n            \"payment_method\": \"bca\",\n            \"order_id\": 10,\n            \"paid_at\": \"2025-04-27T17:02:24.000Z\",\n            \"expired_at\": \"2025-04-27T00:46:10.000Z\",\n            \"status\": \"success\",\n            \"updated_at\": \"2025-04-27T17:02:24.000Z\",\n            \"payment_status\": \"paid\",\n            \"no\": \"HEL/VI/174573637049710\",\n            \"price\": 200000,\n            \"class_completed\": 1,\n            \"user_id\": 7,\n            \"class_id\": 2,\n            \"pretest_score\": 33.33,\n            \"quiz_score\": 0,\n            \"created_at\": \"2025-04-26T23:46:10.000Z\",\n            \"completed_at\": \"2025-04-28T00:09:38.000Z\",\n            \"name\": \"Big 4 Auditor Financial Analyst2\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2\",\n            \"class_category\": \"Desain\",\n            \"photo\": \"item8.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2\",\n            \"tutor\": null,\n            \"tutor_company\": null,\n            \"tutor_description\": null,\n            \"tutor_photo\": null,\n            \"tutor_position\": null,\n            \"total_my_classes\": 13,\n            \"completed_my_classes\": \"13\",\n            \"progress\": \"100\"\n        },\n        {\n            \"id\": 11,\n            \"payment_method\": \"bca\",\n            \"order_id\": 11,\n            \"paid_at\": \"2025-04-27T16:21:30.000Z\",\n            \"expired_at\": \"2025-04-27T00:46:33.000Z\",\n            \"status\": \"success\",\n            \"updated_at\": \"2025-04-27T16:21:30.000Z\",\n            \"payment_status\": \"paid\",\n            \"no\": \"HEL/VI/174573639337011\",\n            \"price\": 200000,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-26T23:46:33.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        },\n        {\n            \"id\": 12,\n            \"payment_method\": \"undefined\",\n            \"order_id\": 12,\n            \"paid_at\": null,\n            \"expired_at\": \"2025-04-27T07:21:25.000Z\",\n            \"status\": \"pending\",\n            \"updated_at\": null,\n            \"payment_status\": \"pending\",\n            \"no\": \"HEL/VI/174576008547812\",\n            \"price\": 0,\n            \"class_completed\": 0,\n            \"user_id\": 7,\n            \"class_id\": 1,\n            \"pretest_score\": null,\n            \"quiz_score\": null,\n            \"created_at\": \"2025-04-27T06:21:25.000Z\",\n            \"completed_at\": null,\n            \"name\": \"Big 4 Auditor Financial Analyst9\",\n            \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik\",\n            \"class_category\": \"Pemasaran\",\n            \"photo\": \"item9.svg\",\n            \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.\",\n            \"tutor\": \"Bosque\",\n            \"tutor_company\": \"Shopee\",\n            \"tutor_description\": \"Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.\",\n            \"tutor_photo\": \"avatar1.svg\",\n            \"tutor_position\": \"Manager\",\n            \"total_my_classes\": 0,\n            \"completed_my_classes\": \"0\",\n            \"progress\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4200/classes/2"
+					},
+					"response": [
+						{
+							"name": "class",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4200/orders/10"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "890"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37a-7e23PHjdsIDbLb020jvqfrX2Vgg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:52:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": {\n        \"id\": 10,\n        \"payment_method\": \"bca\",\n        \"order_id\": 10,\n        \"paid_at\": \"2025-04-27T17:02:24.000Z\",\n        \"expired_at\": \"2025-04-27T00:46:10.000Z\",\n        \"status\": \"success\",\n        \"updated_at\": \"2025-04-27T17:02:24.000Z\",\n        \"payment_status\": \"paid\",\n        \"no\": \"HEL/VI/174573637049710\",\n        \"price\": 200000,\n        \"class_completed\": 1,\n        \"user_id\": 7,\n        \"class_id\": 2,\n        \"pretest_score\": 33.33,\n        \"quiz_score\": 0,\n        \"created_at\": \"2025-04-26T23:46:10.000Z\",\n        \"completed_at\": \"2025-04-28T00:09:38.000Z\",\n        \"name\": \"Big 4 Auditor Financial Analyst2\",\n        \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2\",\n        \"class_category\": \"Desain\",\n        \"photo\": \"item8.svg\",\n        \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2\",\n        \"tutor\": null,\n        \"tutor_company\": null,\n        \"tutor_description\": null,\n        \"tutor_photo\": null,\n        \"tutor_position\": null,\n        \"total_my_classes\": 13,\n        \"completed_my_classes\": \"13\",\n        \"progress\": \"100\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":\"Kevin Satria2\",\r\n    \"class_id\":\"ksatria777@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/orders"
+					},
+					"response": [
+						{
+							"name": "login Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\":\"200000\",\r\n    \"class_id\":\"1\",\r\n    \"payment_method\":\"bca\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/orders"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-uBVsRvtMvRW+kxCxO/Re07gnZZo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:55:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"message\": \"Order successfully created.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":\"Kevin Satria2\",\r\n    \"class_id\":\"ksatria777@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/orders"
+					},
+					"response": [
+						{
+							"name": "store Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\":4,\r\n    \"description\":\"Kereen pool\",\r\n    \"order_id\":11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/orders/review"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-AqiWXgr3hfIF5rvRE+TLH745CeU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:55:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"message\": \"Review successfully created.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Review Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":\"Kevin Satria2\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/orders/review/delete"
+					},
+					"response": [
+						{
+							"name": "store Copy 2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":11\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/orders/review/delete"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-fhHlIX4TWcyrHFBgnbnZR8HtQFw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:56:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": \"Review Deleted\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change payment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_method\":\"ovo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/orders/change_payment/5"
+					},
+					"response": [
+						{
+							"name": "Change payment",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\":9,\r\n    \"payment_method\":\"linkaja\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/orders/change_payment"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-w9aycIi+gTfKnZHyAQpaQJrujms\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:56:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": \"Order successfully updated.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Process payment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":\"Kevin Satria2\",\r\n    \"class_id\":\"ksatria777@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4200/orders"
+					},
+					"response": [
+						{
+							"name": "Update Copy",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\":10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/orders/process_payment"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "890"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37a-78NsQ4hmTWXd2phAmC6mlePiB8Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 14:56:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": {\n        \"id\": 10,\n        \"payment_method\": \"bca\",\n        \"order_id\": 10,\n        \"paid_at\": \"2025-04-28T07:56:43.000Z\",\n        \"expired_at\": \"2025-04-27T00:46:10.000Z\",\n        \"status\": \"success\",\n        \"updated_at\": \"2025-04-28T07:56:43.000Z\",\n        \"payment_status\": \"paid\",\n        \"no\": \"HEL/VI/174573637049710\",\n        \"price\": 200000,\n        \"class_completed\": 1,\n        \"user_id\": 7,\n        \"class_id\": 2,\n        \"pretest_score\": 33.33,\n        \"quiz_score\": 0,\n        \"created_at\": \"2025-04-26T23:46:10.000Z\",\n        \"completed_at\": \"2025-04-28T07:53:30.000Z\",\n        \"name\": \"Big 4 Auditor Financial Analyst2\",\n        \"description\": \"Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2\",\n        \"class_category\": \"Desain\",\n        \"photo\": \"item8.svg\",\n        \"page_title\": \"Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2\",\n        \"tutor\": null,\n        \"tutor_company\": null,\n        \"tutor_description\": null,\n        \"tutor_photo\": null,\n        \"tutor_position\": null,\n        \"total_my_classes\": 13,\n        \"completed_my_classes\": \"13\",\n        \"progress\": \"100\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
