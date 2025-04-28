@@ -2,15 +2,16 @@ const express = require('express')
 const router = express.Router()
 
 const { GetMyClass, ProcessMyClass, SendAnswer, SubmitPretest, SubmitQuiz } = require('../controllers/MyClassController')
+const { verifyToken } = require('../middlewares/authmiddleware')
 
-router.get('/:id', GetMyClass)
+router.get('/:id',verifyToken, GetMyClass)
 
-router.patch('/process', ProcessMyClass)
+router.patch('/process',verifyToken, ProcessMyClass)
 
-router.patch('/send_answer', SendAnswer)
+router.patch('/send_answer',verifyToken, SendAnswer)
 
-router.patch('/submit_pretest', SubmitPretest)
+router.patch('/submit_pretest',verifyToken, SubmitPretest)
 
-router.patch('/submit_quiz', SubmitQuiz)
+router.patch('/submit_quiz',verifyToken, SubmitQuiz)
 
 module.exports = router

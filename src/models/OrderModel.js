@@ -12,7 +12,9 @@ const CheckProgress = async (orderId) => {
     const order = await getOrder(orderId);
     const progress = await GetProgress(orderId);
     if (progress === 100 && order.pretest_score != null && order.quiz_score === 0) {
-        await updateOrder({"class_completed":1},orderId);
+        const now = new Date();
+        const completedAt = now.toISOString().slice(0, 19).replace('T', ' ');
+        await updateOrder({"class_completed":1,"completed_at":completedAt},orderId);
     }
     return true;
 }

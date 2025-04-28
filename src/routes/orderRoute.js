@@ -2,17 +2,18 @@ const express = require('express')
 const router = express.Router()
 
 const { StoreOrder, GetMyOrders, GetOrder, ChangePayment, ProcessPayment, StoreReview } = require('../controllers/OrderController')
+const { verifyToken } = require('../middlewares/authmiddleware')
 
-router.post('/', StoreOrder)
+router.post('/',verifyToken, StoreOrder)
 
-router.post('/review', StoreReview)
+router.post('/review',verifyToken, StoreReview)
 
-router.patch('/change_payment', ChangePayment)
+router.patch('/change_payment',verifyToken, ChangePayment)
 
-router.patch('/process_payment', ProcessPayment)
+router.patch('/process_payment',verifyToken, ProcessPayment)
 
-router.get('/:id', GetOrder)
+router.get('/:id',verifyToken, GetOrder)
 
-router.get('/', GetMyOrders)
+router.get('/',verifyToken, GetMyOrders)
 
 module.exports = router

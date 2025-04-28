@@ -2,19 +2,20 @@ const express = require('express')
 const router = express.Router()
 
 const {StoreUser,UpdateUser,DeleteUser, GetProfile, SignIn, SignOut, GetMyClasses}  = require('../controllers/UserController')
+const { verifyToken, is_guest } = require('../middlewares/authmiddleware')
 
-router.post('/login', SignIn)
+router.post('/login',is_guest, SignIn)
 
-router.get('/logout', SignOut)
+router.post('/logout',verifyToken, SignOut)
 
-router.post('/register', StoreUser)
+router.post('/register',is_guest, StoreUser)
 
-router.patch('/update', UpdateUser)
+router.patch('/update',verifyToken, UpdateUser)
 
-router.delete('/:id', DeleteUser)
+router.delete('/:id',verifyToken, DeleteUser)
 
-router.get('/profile', GetProfile)
+router.get('/profile',verifyToken, GetProfile)
 
-router.get('/classes', GetMyClasses)
+router.get('/classes',verifyToken, GetMyClasses)
 
 module.exports = router
