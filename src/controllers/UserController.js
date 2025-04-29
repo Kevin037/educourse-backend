@@ -18,7 +18,14 @@ const GetMyClasses = async (req,res) => {
     try {
         const token = req.cookies.token;
         const data = jwt.decode(token);
-        const Orders = await getOrders(data.user.id,"success",req.query.status);
+        const filters = {
+            user_id: data.user.id || null,
+            status: req.query.status || "success",
+            class_status: req.query.status || null,
+            limit: req.query.limit || 10,
+            page: req.query.page || 1
+        };
+        const Orders = await getOrders(filters);
         res.status(200).json({error:0,data:Orders});
     } catch (error) {
        res.status(400).json({ error });

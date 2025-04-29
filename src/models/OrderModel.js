@@ -19,16 +19,24 @@ const CheckProgress = async (orderId) => {
     return true;
 }
 
-const getOrders = async (user_id="",status="",class_status="") => {
-    let where = (user_id !== "") ? `WHERE orders.user_id = ${user_id}` : "";
-    if (status !== "") {
+const getOrders = async (filters) => {
+    let where = (filters.user_id) ? `WHERE orders.user_id = ${filters.user_id}` : "";
+    if (filters.status) {
         where += (where !== "") ? " AND " : "WHERE ";
-        where += `orders.status = '${status}'`;
+        where += `orders.status = '${filters.status}'`;
     }
-    if (class_status !== "") {
+    if (filters.class_status) {
         where += (where !== "") ? " AND " : "WHERE ";
-        where += `orders.class_completed = '${class_status}'`;
+        where += `orders.class_completed = '${filters.class_status}'`;
     }
+
+    let limitClause = "";
+    // Pagination
+    const limit = Number(filters.limit) || 10;
+    const page = Number(filters.page) || 1;
+    const offset = (page - 1) * limit;
+    limitClause = `LIMIT ${limit} OFFSET ${offset}`;
+    console.log(limitClause,where);
     
     const [rows] = await dbPool.execute(`SELECT payments.*, payments.status as payment_status,orders.*, 
                                 classes.name, classes.description, class_categories.name as class_category, 
@@ -47,7 +55,7 @@ const getOrders = async (user_id="",status="",class_status="") => {
                                 JOIN class_categories ON class_categories.id = classes.category_id
                                 LEFT JOIN tutors ON tutors.id = (SELECT MIN(t.id) FROM tutors t WHERE t.class_id = classes.id)
                                 LEFT JOIN my_classes ON my_classes.order_id = orders.id
-                                ${where} GROUP BY orders.id`);
+                                ${where} GROUP BY orders.id ${limitClause}`);
     return rows;
 };
 
