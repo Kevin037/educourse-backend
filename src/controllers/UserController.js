@@ -1,4 +1,4 @@
-const {createUser, updateUser, getUser} = require('../models/UserModel');
+const {createUser, updateUser, getUser, sendVerificationEmail, verifyEmail} = require('../models/UserModel');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { getOrders } = require('../models/OrderModel');
@@ -38,12 +38,20 @@ const StoreUser = async (req,res) => {
         if (existingUser) {
             return res.status(400).json({ error: 1, message: "Email sudah terdaftar." });
         }
-        const user = await createUser(req.body);
-        res.status(201).json({error:0,message: "User successfully registered."})
+        const token = await createUser(req.body);
+        await sendVerificationEmail(req.body.email, token);
+        res.status(201).json({error:0,message: "User registered. Verification email sent"})
     } catch (error) {
         res.status(500).json({error:1,data:"Server error",message:error});
     }
 }
+
+const VerifyEmail = async (req, res) => {
+    const token = req.query.token;
+    await verifyEmail(token);
+    return res.status(200).json({ error: 0, message: "Email Verified Successfully" });
+};
+
 
 const SignIn = async (req,res) => {
     try {
@@ -107,4 +115,4 @@ const SignOut = async (req, res) => {
     res.status(200).json({ message: "Logged out" });
   }
 
-module.exports = {StoreUser,UpdateUser, GetProfile, SignIn, SignOut, GetMyClasses}; 
+module.exports = {StoreUser,UpdateUser, GetProfile, SignIn, SignOut, GetMyClasses, VerifyEmail}; 
