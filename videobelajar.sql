@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 28, 2025 at 02:59 PM
+-- Generation Time: May 05, 2025 at 02:38 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.3.6
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `classes` (
 
 INSERT INTO `classes` (`id`, `name`, `category_id`, `page_title`, `price`, `new_price`, `photo`, `description`, `long_description`) VALUES
 (1, 'Big 4 Auditor Financial Analyst9', 1, 'Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.', 500000.00, 250000.00, 'item9.svg', 'Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik', 'Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.'),
-(2, 'Big 4 Auditor Financial Analyst2', 2, 'Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2', 400000.00, 200000.00, 'item8.svg', 'Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2', 'Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.2');
+(2, 'Cig 4 Auditor Financial Analyst2', 2, 'Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.2', 400000.00, 200000.00, 'item8.svg', 'Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan  kurikulum terbaik2', 'Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk seperti situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik.2');
 
 -- --------------------------------------------------------
 
@@ -347,20 +347,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   `no_hp` int NOT NULL,
   `password` varchar(255) NOT NULL,
   `photo` text,
+  `verification_token` varchar(255) DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `name`, `no_hp`, `password`, `photo`) VALUES
-(1, 'ksatria708@gmail.com', 'kevin', 878888888, '123321', NULL),
-(7, 'ksatria888@gmail.com', 'nivek', 3333333, '$2b$10$4m5gYQgx5fU7/eVIgFPkSu4np5frLyxajqWb4yJ4GNZR.6QqPLXce', NULL),
-(8, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$FLMobG5vZkQXqnG2tV5wEONvv1yHFCd9/usejUf6QhYsSXz/Gz/aW', NULL),
-(9, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$zxXIX6teoWUB3uNEd.N/J.t91t72IvxPiJZGTLq6w2x3chLnc7ACa', NULL),
-(10, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$6g/8BF/Hnd.J0iKkldXQHOBBW.c9fUi7AZgERl.s8UBtoxPLR7Ba6', NULL),
-(11, 'ksatria889@gmail.com', 'Kevin Satria2', 895421111, '$2b$10$GBGZgW94Lh8A1vCZbrPH.eAD7dMmXcGfLAgx22uMWkUGTILx/Etnq', NULL);
+INSERT INTO `users` (`id`, `email`, `name`, `no_hp`, `password`, `photo`, `verification_token`, `is_verified`) VALUES
+(1, 'ksatria708@gmail.com', 'kevin', 878888888, '123321', NULL, NULL, 0),
+(7, 'ksatria888@gmail.com', 'nivek', 3333333, '$2b$10$4m5gYQgx5fU7/eVIgFPkSu4np5frLyxajqWb4yJ4GNZR.6QqPLXce', NULL, NULL, 0),
+(8, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$FLMobG5vZkQXqnG2tV5wEONvv1yHFCd9/usejUf6QhYsSXz/Gz/aW', NULL, NULL, 0),
+(9, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$zxXIX6teoWUB3uNEd.N/J.t91t72IvxPiJZGTLq6w2x3chLnc7ACa', NULL, NULL, 0),
+(10, 'ksatria888@gmail.com', 'nivek', 895421111, '$2b$10$6g/8BF/Hnd.J0iKkldXQHOBBW.c9fUi7AZgERl.s8UBtoxPLR7Ba6', NULL, NULL, 0),
+(11, 'ksatria889@gmail.com', 'Kevin Satria2', 895421111, '$2b$10$GBGZgW94Lh8A1vCZbrPH.eAD7dMmXcGfLAgx22uMWkUGTILx/Etnq', NULL, NULL, 0),
+(22, 'ksatria889@gmail.com', 'Kevin Satria2', 895421111, '$2b$10$PPtdt8k.P6s9Mp7F9zyTSuq7k.HC54z121eF4EVV6uYzoA92UT8sS', NULL, '5637808c-42be-49c0-90a6-1d57c3a9920c', 0),
+(23, 'kevinsatriacorp@gmail.com', 'Kevin Satria2', 895421111, '$2b$10$b9CqvcaXZZXbwJ3H60LnHuthYzCcvoxeqathQ5tL6GeGGs1Wv0rw6', '1746413943063-455102640.jpg', NULL, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
