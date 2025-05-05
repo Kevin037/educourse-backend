@@ -20,6 +20,7 @@ const {logRequest} = require('./middlewares/log')
 
 app.use(logRequest)
 app.use(express.json())
+app.use('/uploads', express.static('uploads'));
 app.use('/auth', UserRoute)
 app.use('/classes/',ClassRoute)
 app.use('/class_categories/',ClassCategoriesRoute)

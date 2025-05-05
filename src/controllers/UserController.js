@@ -115,4 +115,19 @@ const SignOut = async (req, res) => {
     res.status(200).json({ message: "Logged out" });
   }
 
-module.exports = {StoreUser,UpdateUser, GetProfile, SignIn, SignOut, GetMyClasses, VerifyEmail}; 
+const changeImage = async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ error: 1, message: "No file uploaded." });
+        }
+    
+        const token = req.cookies.token;
+        const data = jwt.decode(token);
+        const user = await updateUser({ photo: req.file.filename },data.user.email);
+        res.status(200).json({error:0,data:user});
+    } catch (error) {
+        res.status(500).json({error:1,data:"Server error",message:error});
+    }
+};
+
+module.exports = {StoreUser,UpdateUser, GetProfile, SignIn, SignOut, GetMyClasses, VerifyEmail, changeImage}; 
