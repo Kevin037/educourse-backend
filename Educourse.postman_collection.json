@@ -400,6 +400,124 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJlbWFpbCI6ImtzYXRyaWE4ODhAZ21haWwuY29tIn0sImlhdCI6MTc0NTg1MTU0NiwiZXhwIjoxNzQ4NDQzNTQ2fQ.c8CHHNWm8aPK2WqoPZTn-g-_vO2d3LvvZW2r-Jkofz4\",\n    \"user\": {\n        \"id\": 7,\n        \"name\": \"Satria2\",\n        \"email\": \"ksatria888@gmail.com\",\n        \"photo\": null\n    }\n}"
+						},
+						{
+							"name": "login Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"kevinsatriacorp@gmail.com\",\r\n    \"password\":\"00000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4200/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMywiZW1haWwiOiJrZXZpbnNhdHJpYWNvcnBAZ21haWwuY29tIn0sImlhdCI6MTc0NjQxMzk0MCwiZXhwIjoxNzQ5MDA1OTQwfQ.S2qpTafQpPLBQmw-IVKQ_0U5u_5cUFmMClv9Gwo2Xqk; Max-Age=1746500340; Path=/; Expires=Sat, 07 Sep 2080 05:58:00 GMT; HttpOnly; Secure"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "300"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12c-q+iegQtcHQYKij2oVP+H/r/6IVc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 May 2025 02:59:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMywiZW1haWwiOiJrZXZpbnNhdHJpYWNvcnBAZ21haWwuY29tIn0sImlhdCI6MTc0NjQxMzk0MCwiZXhwIjoxNzQ5MDA1OTQwfQ.S2qpTafQpPLBQmw-IVKQ_0U5u_5cUFmMClv9Gwo2Xqk\",\n    \"user\": {\n        \"id\": 23,\n        \"name\": \"Kevin Satria2\",\n        \"email\": \"kevinsatriacorp@gmail.com\",\n        \"photo\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Kevin Satria M I/OneDrive/Pictures/4JB5.NR.jpg"
+										}
+									]
+								},
+								"url": "http://localhost:4200/auth/upload"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae-i5rbbFvLDxi8NJYt8oZg5fBYkMc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 May 2025 02:59:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": 0,\n    \"data\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"info\": \"Rows matched: 1  Changed: 1  Warnings: 0\",\n            \"serverStatus\": 34,\n            \"warningStatus\": 0,\n            \"changedRows\": 1\n        },\n        null\n    ]\n}"
 						}
 					]
 				}
